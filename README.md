@@ -22,5 +22,40 @@ Usage
 -----
 
 ### Memory Allocation: `smart_malloc`
-
+```c
+void *smart_malloc(size_t size);
+```
 Replaces the standard `malloc` function.
+*   `size`: Number of bytes to allocate.
+*   Returns a pointer to the allocated memory or `NULL` if allocation fails.
+
+### Automatic Memory Cleanup: `smart_free`
+```c
+void smart_free();
+```
+Frees all memory allocated with `smart_malloc`, it keeps track of every malloc ;)
+
+Example
+-------
+
+Below is a simple usage example of CGC:
+```c
+#include "cgc.h"
+
+int main() {
+    int *num = smart_malloc(sizeof(int));
+    if (num == NULL) {
+        return 1; // Allocation failed
+    }
+
+    *num = 10;
+    printf("Number: %d\n", *num);
+
+    smart_free(); // Free all allocated memory
+    return 0;
+}
+```
+
+Note
+-------
+This is just a side project i am doing for fun, i might use it in some 42 projects, we'll see how it goes :)
