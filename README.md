@@ -2,7 +2,8 @@ M# Custom C Garbage Collector (CGC)
 
 ## Overview
 
-This repository introduces a custom garbage collector for C programs, aimed at enhancing memory management and minimizing memory leaks. The Custom C Garbage Collector (CGC) replaces standard memory allocation and deallocation functions with 'smart' versions that track all allocated memory, thereby ensuring efficient memory cleanup.
+This repository introduces a custom garbage collector for C programs, aimed at enhancing memory management and minimizing memory leaks, it's far from being optimized, and does not support multi-threading, but i will be updating this as i learn more stuff :D.
+ The Custom C Garbage Collector (CGC) replaces standard memory allocation and deallocation functions with 'smart' versions that track all allocated memory, thereby ensuring efficient memory cleanup.
 
 ## Features
 
@@ -16,3 +17,10 @@ To use CGC in your project, include the `cgc.h` header file and ensure the CGC s
 
 ```c
 #include "cgc.h"
+```
+Usage
+-----
+
+### Memory Allocation: `smart_malloc`
+
+Replaces the standard `malloc` function.
