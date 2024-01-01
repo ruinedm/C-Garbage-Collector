@@ -6,7 +6,7 @@
 /*   By: mboukour <mboukour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:00:52 by mboukour          #+#    #+#             */
-/*   Updated: 2024/01/01 15:29:37 by mboukour         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:29:13 by mboukour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 #define SET 0
 #define GET 1
+
+#define ERROR 0
+#define SUCCESS 1
 
 typedef struct s_node {
     void *ptr_to_free;

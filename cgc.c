@@ -6,7 +6,7 @@
 /*   By: mboukour <mboukour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 14:02:20 by mboukour          #+#    #+#             */
-/*   Updated: 2024/01/01 15:43:26 by mboukour         ###   ########.fr       */
+/*   Updated: 2024/01/01 17:33:26 by mboukour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,24 @@ void *globalizer_head(int mode, void *ptr)
     else // SHOULD NEVER TRIGGER, IMPLEMENTED TO BYPASS THE WARNING. (RESPECT MODES)
         return (NULL); 
 }
-void store_mallocs(void *ptr_to_add) {
+int store_mallocs(void *ptr_to_add) 
+{
     t_node *head, *new_node;
 
     head = globalizer_head(GET, NULL);
     new_node = ft_lstnew(ptr_to_add);
     if (!new_node)
-        return;
+        return (ERROR);
     if (!head)
+    {
         globalizer_head(SET, new_node);
+        return (SUCCESS);
+    }
     else
+    {
         ft_lstadd_back(head, new_node);
+        return (SUCCESS);
+    }
 }
 
 void *smart_malloc(size_t size)
@@ -45,11 +52,8 @@ void *smart_malloc(size_t size)
 
     head = globalizer_head(GET, NULL);
     ptr = malloc(size);
-    if(ptr)
-    {
-        store_mallocs(ptr);
+    if(ptr && store_mallocs(ptr))
         return (ptr);
-    }
     smart_free();
     return (NULL);
 }
