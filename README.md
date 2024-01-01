@@ -1,0 +1,1 @@
+My own C Garbage Collector, might be dumb but it does it's job, fuck freeing the memory manually btw.
