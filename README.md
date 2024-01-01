@@ -1,4 +1,4 @@
-M# Custom C Garbage Collector (CGC)
+# Custom C Garbage Collector (CGC)
 
 ## Overview
 
