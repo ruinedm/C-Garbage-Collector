@@ -15,7 +15,8 @@ void *globalizer_head(int mode, void *ptr)
 }
 int store_mallocs(void *ptr_to_add) 
 {
-    t_node *head, *new_node;
+    t_node *head;
+    t_node *new_node;
 
     head = globalizer_head(GET, NULL);
     new_node = ft_lstnew(ptr_to_add);
