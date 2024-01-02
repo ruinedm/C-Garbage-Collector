@@ -11,6 +11,10 @@ This repository introduces a custom garbage collector for C programs, aimed at e
 - **Easy Integration**: Designed to be easily integrated into existing C projects.
 - **Memory Allocation Tracking**: Keeps track of all allocated memory blocks for efficient deallocation.
 
+## TO DO
+- **Reference Counting**: Implement a reference counting mechanism for each allocated block. This way, a block of memory can be freed only when its reference count drops to zero. This is especially useful in complex programs where the same memory might be used in different parts of the program.
+
+
 ## Installation
 
 To use CGC in your project, include the `cgc.h` header file and ensure the CGC source files are compiled with your project.
